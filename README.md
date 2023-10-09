@@ -4,12 +4,34 @@ This is the starter template for the final assessment project for Udacity's Reac
 
 Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://reactjs.org/docs/create-a-new-react-app.html) to bootstrap the project.
 
+## Prerequisites
+
+To run a React app, you'll need a few prerequisites in place. Here's a step-by-step guide on what you'll need:
+
+- Node.js and npm (Node Package Manager):
+  React is built using Node.js, so you'll need to install Node.js which includes npm, a package manager for JavaScript. You can download Node.js from the official website: https://nodejs.org
+
 ## TL;DR
 
-To get started developing right away:
+Running the React App
 
-- install all project dependencies with `npm install`
-- start the development server with `npm start`
+- Navigate to the Project Directory: <br>
+  Change your current directory to the project directory you just created:
+
+```bash
+cd udacity-react-01
+```
+
+- Start the Development Server: <br>
+  Run the following command to start the development server and launch the React app:
+
+```
+npm start
+```
+
+This command will start the development server and automatically open your React app in a web browser. The app will automatically reload whenever you make changes to the source code.
+
+Now you have your React app up and running! You can start building your application by editing the code in the src directory of your project.
 
 ## What You're Getting
 
@@ -35,59 +57,6 @@ To get started developing right away:
 ```
 
 Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
-
-## Backend Server
-
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
-
-- [`getAll`](#getall)
-- [`update`](#update)
-- [`search`](#search)
-
-### `getAll`
-
-Method Signature:
-
-```js
-getAll();
-```
-
-- Returns a Promise which resolves to a JSON object containing a collection of book objects.
-- This collection represents the books currently in the bookshelves in your app.
-
-### `update`
-
-Method Signature:
-
-```js
-update(book, shelf);
-```
-
-- book: `<Object>` containing at minimum an `id` attribute
-- shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]
-- Returns a Promise which resolves to a JSON object containing the response data of the POST request
-
-### `search`
-
-Method Signature:
-
-```js
-search(query);
-```
-
-- query: `<String>`
-- Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects.
-- These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
-
-## Important
-
-The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
-
-## Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebook/create-react-app/blob/main/packages/cra-template/template/README.md).
-
-## Contributing
 
 This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 

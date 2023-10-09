@@ -8,38 +8,39 @@ const SearchBooks = ({ setChelfChanged, currentBooks }) => {
   const [searchBooks, setSearchBooks] = useState([]);
   const [query, setQuery] = useState("");
 
-  useEffect(async () => {
-    let books = query === "" ? [] : await search(query, 20);
+  useEffect(() => {
+    const searchBook = async (query) => {
+      let books = query === "" ? [] : await search(query, 20);
+      if (books?.error) {
+        setSearchBooks([]);
+        return;
+      }
+      let result = books?.map((book) => {
+        let duplicatedBook = currentBooks.find(
+          (currentBook) => currentBook.id === book.id
+        );
+        if (duplicatedBook) {
+          return {
+            ...book,
+            shelf: duplicatedBook.shelf,
+          };
+        }
 
-    if (books.error) {
-      setSearchBooks([]);
-      return;
-    }
-    let result = books.map((book) => {
-      let duplicatedBook = currentBooks.find(
-        (currentBook) => currentBook.id === book.id
-      );
-      if (duplicatedBook) {
         return {
           ...book,
-          shelf: duplicatedBook.shelf,
+          shelf: "none",
         };
-      }
-
-      return {
-        ...book,
-        shelf: "none",
-      };
-    });
-    console.log(result);
-    setSearchBooks(result);
-  }, [query]);
+      });
+      setSearchBooks(result);
+    };
+    searchBook(query);
+  }, [query, currentBooks]);
 
   return (
     <div className="search-books">
       <div className="search-books-bar">
         <Link to="/" className="close-search">
-          <a>Close</a>
+          Close
         </Link>
         <div className="search-books-input-wrapper">
           <input
@@ -58,7 +59,7 @@ const SearchBooks = ({ setChelfChanged, currentBooks }) => {
                 authors={item.authors}
                 bookId={item.id}
                 shelf={item.shelf}
-                backgroundImage={item.imageLinks.thumbnail}
+                backgroundImage={item?.imageLinks?.thumbnail}
                 setChelfChanged={setChelfChanged}
               />
             </li>
