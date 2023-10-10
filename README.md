@@ -15,6 +15,12 @@ To run a React app, you'll need a few prerequisites in place. Here's a step-by-s
 
 Running the React App
 
+- Clone this project:
+
+```
+git clone https://github.com/quangdang2001/udacity-react-01
+```
+
 - Navigate to the Project Directory: <br>
   Change your current directory to the project directory you just created:
 
@@ -23,10 +29,14 @@ cd udacity-react-01
 ```
 
 - Start the Development Server: <br>
-  Run the following command to start the development server and launch the React app:
+  Run the following command to start the development server and launch the React app: <br>
 
 ```
-npm start
+npm install: in the project root directory to install dependency
+```
+
+```
+npm start: to launch the project
 ```
 
 This command will start the development server and automatically open your React app in a web browser. The app will automatically reload whenever you make changes to the source code.

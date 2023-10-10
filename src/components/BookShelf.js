@@ -14,7 +14,7 @@ const BookShelf = ({ bookShelfTitle, books, setChelfChanged }) => {
                 authors={item.authors}
                 bookId={item.id}
                 shelf={item.shelf}
-                backgroundImage={item.imageLinks.thumbnail}
+                backgroundImage={item?.imageLinks?.thumbnail}
                 setChelfChanged={setChelfChanged}
               />
             </li>
